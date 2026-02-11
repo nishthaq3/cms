@@ -1,9 +1,12 @@
 import { v2 as cloudinary } from 'cloudinary';
     // Configuration
-let cloudinary= cloudinary.config({ 
+export let cloud= ()=>{
+	cloudinary.config({ 
         cloud_name: process.env.CLOUD_NAME, 
         api_key: process.env.API_KEY, 
         api_secret: process.env.API_SECRET // Click 'View API Keys' above to copy your API secret
     });
-cloudinary()
+	console.log("cloud connected")
+}
+
 export default cloudinary

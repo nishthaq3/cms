@@ -1,5 +1,5 @@
 import Artifact from "../models/artifact.js";
-
+import cloudinary from "../config/cloudinary.js";
 // Create a new artifact
 export const createArtifactService = async ({
     title,
@@ -10,7 +10,19 @@ export const createArtifactService = async ({
     if(!title || !content) {
         throw new Error('Title and Content are required');
     }
+	let mediaUrl=null
+	if(filePath){
+		const uploadResult=await cloudinary.uploader.upload(
+			filePath,
+			{
+				folder: "cms-artifacts"
+			}
+		)
+		mediaUrl=uploadResult.secure_url
 
+		fs.unlinkSync(filePath)
+	}
+	console.log("Media before saving:",mediaUrl)
     const artifact = await Artifact.create({
         title,
         content,
