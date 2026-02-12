@@ -7,7 +7,8 @@ import likeRoutes from "./routes/likes.routes.js"
 import commentRoutes from "./routes/comment.routes.js"
 import cookieParser from "cookie-parser";
 import testing from "./cron/testing.js";
-import webhookRoutes from "./webhook/webhook.js"
+import webhookRoutes from "./webhook/webhook.js";
+import chatRoutes from "./routes/chats.route.js";
 
 const app = express();
 
@@ -32,5 +33,6 @@ app.use("/artifact",artifactRoutes);
 app.use("/likes",likeRoutes);
 app.use("/comments",commentRoutes);
 app.use("/webhooks",webhookRoutes);
+app.use("/chats",chatRoutes);
 
 export default app;

@@ -3,9 +3,9 @@ import cron from "node-cron"
 
 
 export const testing=()=>{
-	console.log("Executing cron function")
-	cron.schedule("21 15 * * *",()=>{
-		console.log("testing cron")
-	})
+	// console.log("Executing cron function")
+	// cron.schedule("21 15 * * *",()=>{
+	// 	console.log("testing cron")
+	// })
 }
 export default testing
